@@ -1,0 +1,242 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+/* ---------- Background ---------- */
+.hero .hero__bg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fallback scene: emerald room with warm hanging lights (replaced by the client photo) */
+.hero__scene {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(20, 101, 74, 0.55), transparent 70%),
+    radial-gradient(50% 40% at 50% 100%, rgba(201, 162, 75, 0.16), transparent 70%),
+    linear-gradient(180deg, var(--c-emerald-800), var(--c-emerald-950) 80%);
+}
+
+.hero__lamp {
+  position: absolute;
+  top: 0;
+  left: var(--x);
+  width: 1px;
+  height: var(--len);
+  background: linear-gradient(180deg, transparent, rgba(236, 212, 143, 0.55));
+  transform-origin: top center;
+  animation: hero-sway 8s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+.hero__lamp i {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff3c4 0%, #ecd48f 38%, transparent 72%);
+  box-shadow:
+    0 0 36px 16px rgba(236, 212, 143, 0.32),
+    0 0 130px 56px rgba(201, 162, 75, 0.16);
+}
+
+@keyframes hero-sway {
+  from {
+    transform: rotate(-1.4deg);
+  }
+  to {
+    transform: rotate(1.4deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__lamp:nth-child(n + 5) {
+    display: none;
+  }
+}
+
+/* Legibility: darken top and bottom, vignette the edges */
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(3, 9, 7, 0.55) 0%, rgba(3, 9, 7, 0.2) 38%, rgba(3, 9, 7, 0.55) 72%, var(--bg) 100%),
+    radial-gradient(120% 90% at 50% 45%, transparent 40%, rgba(3, 9, 7, 0.6) 100%);
+}
+
+.hero .gold-particles {
+  z-index: 2;
+}
+
+.hero__frame {
+  position: absolute;
+  inset: clamp(0.75rem, 2vw, 1.5rem);
+  z-index: 2;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+
+/* ---------- Content ---------- */
+.hero__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding-block: calc(var(--header-h) + 3rem) 7.5rem;
+}
+
+.hero__title {
+  font-size: clamp(2.3rem, 1.2rem + 5.2vw, 5.25rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  max-width: 11em;
+  color: var(--c-ivory-100);
+  text-shadow: 0 2px 40px rgba(3, 9, 7, 0.6);
+}
+
+.hero__text {
+  max-width: 40rem;
+  color: var(--c-ivory-300);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 520px) {
+  .hero__actions {
+    width: 100%;
+    max-width: 20rem;
+    flex-direction: column;
+  }
+  .hero__actions .btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Scroll indicator ---------- */
+.hero__scroll {
+  position: absolute;
+  bottom: clamp(1.75rem, 4vh, 2.5rem);
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 44px;
+  transform: translateX(-50%);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  text-transform: uppercase;
+  color: var(--c-gold-300);
+}
+
+.hero__scroll-line {
+  position: relative;
+  width: 1px;
+  height: 52px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.hero__scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: var(--c-gold-300);
+  animation: hero-scroll 2.4s var(--ease-in-out) infinite;
+}
+
+@keyframes hero-scroll {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(260%);
+  }
+}
+
+@media (max-height: 560px) {
+  .hero__scroll {
+    display: none;
+  }
+}
+
+/* ---------- Sparkles (desktop only, two only) ---------- */
+.hero__sparkle {
+  position: absolute;
+  z-index: 2;
+  display: none;
+  color: var(--c-gold-300);
+  opacity: 0.7;
+  animation: hero-float 7s ease-in-out infinite alternate;
+}
+
+.hero__sparkle--a {
+  top: 24%;
+  left: 12%;
+}
+
+.hero__sparkle--b {
+  right: 11%;
+  bottom: 27%;
+  width: 18px;
+  height: 18px;
+  animation-delay: -3s;
+}
+
+@keyframes hero-float {
+  from {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  to {
+    transform: translateY(10px) rotate(12deg);
+  }
+}
+
+@media (min-width: 960px) {
+  .hero__sparkle {
+    display: block;
+  }
+}

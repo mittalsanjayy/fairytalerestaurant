@@ -1,0 +1,101 @@
+/* ==========================================================================
+   FAIRYTALE — DESIGN TOKENS
+   Single source of truth for colour, type, spacing, motion and layering.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Emerald & black surfaces ---- */
+  --c-black: #030907;
+  --c-emerald-950: #04120d;
+  --c-emerald-900: #07211a;
+  --c-emerald-800: #0b3226;
+  --c-emerald-700: #0f4a37;
+  --c-emerald-600: #14654a;
+
+  /* ---- Metallic gold ---- */
+  --c-gold-200: #f3e3b3;
+  --c-gold-300: #ecd48f;
+  --c-gold-400: #dcbb67;
+  --c-gold-500: #c9a24b;
+  --c-gold-600: #a8842f;
+  --c-gold-700: #7d6120;
+
+  /* ---- Ivory (text on dark) ---- */
+  --c-ivory-100: #f6efdc;
+  --c-ivory-300: #d9d1bb;
+  --c-ivory-500: #a9a28f;
+
+  /* ---- Semantic colours ---- */
+  --bg: var(--c-emerald-950);
+  --bg-raised: var(--c-emerald-900);
+  --bg-deep: var(--c-black);
+  --text: var(--c-ivory-100);
+  --text-soft: var(--c-ivory-300);
+  --text-muted: var(--c-ivory-500);
+  --accent: var(--c-gold-500);
+  --accent-bright: var(--c-gold-300);
+  --line: rgba(201, 162, 75, 0.28);
+  --line-strong: rgba(201, 162, 75, 0.6);
+  --focus: var(--c-gold-300);
+  --danger: #e58a7c;
+  --success: #7fd6a0;
+
+  /* Metallic gold — use for display text only, never large surfaces */
+  --gold-metal: linear-gradient(120deg, #9a7a30 0%, #ecd48f 38%, #c9a24b 62%, #8f6f2a 100%);
+
+  /* ---- Typography ---- */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-body: 'Jost', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --fs-display: clamp(2.5rem, 1.4rem + 5vw, 5.5rem);
+  --fs-h1: clamp(2.2rem, 1.4rem + 3.4vw, 4rem);
+  --fs-h2: clamp(1.8rem, 1.2rem + 2.4vw, 3rem);
+  --fs-h3: clamp(1.3rem, 1.1rem + 1vw, 1.75rem);
+  --fs-lead: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.75rem;
+
+  --tracking-wide: 0.18em;
+  --tracking-display: 0.04em;
+
+  /* ---- Spacing (8px rhythm) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --container: 1320px;
+  --section-y: clamp(4.5rem, 10vw, 9rem);
+  --header-h: 76px;
+
+  /* ---- Shape: deliberately restrained, near-square ---- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ---- Elevation ---- */
+  --shadow-soft: 0 18px 50px -20px rgba(0, 0, 0, 0.7);
+  --shadow-gold: 0 0 0 1px var(--line), 0 24px 60px -24px rgba(201, 162, 75, 0.25);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.25s;
+  --dur-base: 0.5s;
+  --dur-slow: 0.9s;
+
+  /* ---- Layering ---- */
+  --z-header: 50;
+  --z-overlay: 80;
+  --z-modal: 100;
+  --z-cursor: 200;
+  --z-loader: 300;
+}

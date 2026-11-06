@@ -1,0 +1,111 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.field__label {
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.field__req {
+  color: var(--accent);
+}
+
+.field__opt {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.field__control {
+  width: 100%;
+  min-height: 52px; /* touch target */
+  padding: 0.8rem 1rem;
+  font: inherit;
+  font-size: 1rem; /* 16px+ stops iOS zooming on focus */
+  color: var(--text);
+  background: rgba(3, 9, 7, 0.55);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.field__control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.field__control:hover {
+  border-color: var(--line-strong);
+}
+
+.field__control:focus {
+  outline: none;
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 3px rgba(236, 212, 143, 0.18);
+}
+
+.field__control--textarea {
+  min-height: 7.5rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field__control--select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.25rem) 50%,
+    calc(100% - 0.9rem) 50%;
+  background-size: 0.4rem 0.4rem;
+  background-repeat: no-repeat;
+}
+
+.field__control--select option {
+  background: var(--c-emerald-900);
+  color: var(--text);
+}
+
+/* Native date/time pickers: keep the gold-on-dark look */
+.field__control[type='date'],
+.field__control[type='time'] {
+  color-scheme: dark;
+}
+
+.field--error .field__control {
+  border-color: var(--danger);
+}
+
+.field__hint,
+.field__error {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.field__hint {
+  color: var(--text-muted);
+}
+
+.field__error {
+  color: var(--danger);
+}
+
+/* Honeypot: off-screen, not display:none (some bots skip display:none fields) */
+.hp-field {
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

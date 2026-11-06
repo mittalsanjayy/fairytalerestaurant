@@ -1,0 +1,6 @@
+node_modules/
+dist/
+qa-report/
+.env
+.env.*
+src/assets/images/_originals/

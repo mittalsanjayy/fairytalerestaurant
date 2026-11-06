@@ -1,0 +1,97 @@
+.celebrations {
+  background:
+    radial-gradient(50% 35% at 12% 90%, rgba(20, 101, 74, 0.2), transparent 70%),
+    var(--bg);
+}
+
+.celebrations__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.celebrations__title {
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  line-height: 1.06;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  max-width: 20ch;
+}
+
+.celebrations__lead {
+  margin-inline: auto;
+}
+
+.celebrations__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7) var(--space-6);
+}
+
+@media (min-width: 700px) {
+  .celebrations__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Staggered rhythm: the right-hand column sits lower for an editorial feel */
+  .celebrations__item:nth-child(even) {
+    margin-top: var(--space-8);
+  }
+}
+
+.celebrations__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.celebrations__img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+}
+
+.celebrations__img .photo__img {
+  transition: transform 1.2s var(--ease-out);
+}
+
+.celebrations__card:hover .photo__img {
+  transform: scale(1.04);
+}
+
+.celebrations__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.celebrations__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.celebrations__body h3 {
+  font-size: var(--fs-h2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.celebrations__body p {
+  color: var(--text-soft);
+  max-width: 40ch;
+  margin-bottom: var(--space-2);
+}
+
+.celebrations__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

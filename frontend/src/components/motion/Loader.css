@@ -1,0 +1,109 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  overflow: hidden;
+}
+
+/* Two curtain halves. 51% height each so no hairline seam shows between them. */
+.loader__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 51%;
+  background: var(--c-emerald-950);
+}
+.loader__panel--top {
+  top: 0;
+}
+.loader__panel--bottom {
+  bottom: 0;
+}
+
+.loader__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+}
+
+.loader__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.loader__glow {
+  position: absolute;
+  z-index: -1;
+  width: min(90vw, 640px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20, 101, 74, 0.55), transparent 65%);
+}
+
+.loader__emblem {
+  box-shadow: 0 0 60px -10px rgba(201, 162, 75, 0.45);
+}
+
+.loader__name {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.08em 0.14em;
+}
+
+.loader__name-inner {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 10.5vw, 4.75rem);
+  letter-spacing: 0.16em;
+  text-indent: 0.16em;
+  line-height: 1.05;
+}
+
+.loader__sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: var(--text-soft);
+}
+
+.loader__line {
+  display: block;
+  width: min(220px, 50vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-gold-400), transparent);
+  transform-origin: center;
+}
+
+.loader__skip {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 3;
+  min-height: 44px;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid var(--line);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-gold-300);
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+.loader__skip:hover {
+  background: var(--c-gold-500);
+  color: var(--c-emerald-950);
+}

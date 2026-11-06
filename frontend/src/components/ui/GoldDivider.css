@@ -1,0 +1,22 @@
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 240px;
+  color: var(--accent);
+}
+
+.gold-divider__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-gold-500));
+}
+
+.gold-divider__line:last-child {
+  background: linear-gradient(270deg, transparent, var(--c-gold-500));
+}
+
+.gold-divider__gem {
+  flex: none;
+}

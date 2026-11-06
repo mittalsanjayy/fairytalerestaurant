@@ -1,0 +1,17 @@
+.split__word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  /* room for descenders and tracked caps without clipping the mask */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.split__inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.split__inner--accent {
+  font-style: italic;
+}

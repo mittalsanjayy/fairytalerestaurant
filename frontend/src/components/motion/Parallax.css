@@ -1,0 +1,10 @@
+.parallax {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax__inner {
+  position: absolute;
+  inset: -12% 0;
+  will-change: transform;
+}

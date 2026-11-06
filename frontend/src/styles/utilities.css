@@ -1,0 +1,92 @@
+/* ==========================================================================
+   UTILITIES — layout primitives and small helpers
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 2.25rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.eyebrow--center::after {
+  content: '';
+  width: 2.25rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Metallic gold display text */
+.text-gold {
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--text-soft);
+  line-height: 1.75;
+  max-width: 60ch;
+}
+
+.hairline {
+  border: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: var(--z-loader);
+  padding: var(--space-3) var(--space-5);
+  background: var(--c-gold-500);
+  color: var(--c-emerald-950);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transform: translateY(-200%);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}

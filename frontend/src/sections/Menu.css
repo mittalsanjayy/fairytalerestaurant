@@ -1,0 +1,236 @@
+.menu {
+  background:
+    radial-gradient(55% 40% at 85% 12%, rgba(20, 101, 74, 0.22), transparent 70%),
+    var(--bg);
+}
+
+.menu__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.menu__title {
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  line-height: 1.06;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  max-width: 18ch;
+}
+
+.menu__lead {
+  margin-inline: auto;
+}
+
+/* ---------- Category tabs ---------- */
+.menu__tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: clamp(1.25rem, 3.5vw, 3rem);
+  margin-bottom: var(--space-7);
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--line);
+  scroll-snap-type: x proximity;
+}
+
+.menu__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .menu__tabs {
+    justify-content: center;
+  }
+}
+
+.menu__tab {
+  position: relative;
+  flex: none;
+  min-height: 48px;
+  padding: var(--space-3) 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  scroll-snap-align: center;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.menu__tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.menu__tab:hover {
+  color: var(--text-soft);
+}
+
+.menu__tab.is-active {
+  color: var(--accent-bright);
+}
+
+.menu__tab.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Panel ---------- */
+.menu__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7);
+  outline-offset: 8px;
+}
+
+@media (min-width: 900px) {
+  .menu__panel {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: center;
+  }
+}
+
+.menu__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 640px;
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 0.6rem;
+  background: var(--bg-raised);
+}
+
+.menu__media .photo {
+  height: 100%;
+}
+
+.menu__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.menu__cat-title {
+  font-size: var(--fs-h1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.menu__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  color: var(--accent-bright);
+}
+
+.menu__text {
+  color: var(--text-soft);
+  max-width: 52ch;
+}
+
+.menu__note {
+  margin-top: var(--space-2);
+  padding: var(--space-4) 0 var(--space-4) var(--space-5);
+  border-left: 1px solid var(--line-strong);
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+/* ---------- Item list (appears once the owner adds dishes) ---------- */
+.menu__items {
+  width: 100%;
+  max-width: 34rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-2);
+}
+
+.menu__item {
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--line);
+}
+
+.menu__item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.menu__item-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.menu__item-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.menu__item-leader {
+  flex: 1;
+  min-width: 1rem;
+  align-self: center;
+  border-bottom: 1px dotted var(--line-strong);
+}
+
+.menu__item-price {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-bright);
+}
+
+.menu__item-desc {
+  margin-top: var(--space-1);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.menu__veg {
+  flex: none;
+  align-self: center;
+  width: 12px;
+  height: 12px;
+  border: 1px solid currentColor;
+  border-radius: 1px;
+  position: relative;
+}
+
+.menu__veg::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.menu__veg--veg {
+  color: var(--success);
+}
+
+.menu__veg--nonveg {
+  color: var(--danger);
+}
+
+.menu__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}

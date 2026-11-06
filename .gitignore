@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Builds
+frontend/dist/
+
+# Environment files (never commit real secrets)
+.env
+.env.*
+!.env.example
+!.env.production.example
+*.local
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+backend/instance/
+
+# User uploads (kept out of git; folder preserved with .gitkeep)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
+
+# Original (uncompressed) client photos and QA output
+frontend/src/assets/images/_originals/
+frontend/qa-report/

@@ -1,0 +1,138 @@
+.offers {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--c-emerald-900) 50%, var(--bg) 100%);
+}
+
+.offers__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.offers__title {
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  line-height: 1.06;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  max-width: 20ch;
+}
+
+.offers__lead {
+  margin-inline: auto;
+}
+
+/* ---------- Real offers ---------- */
+.offers__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+@media (min-width: 700px) {
+  .offers__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .offers__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.offers__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(11, 50, 38, 0.55), rgba(4, 18, 13, 0.6));
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+.offers__card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-4px);
+}
+
+.offers__card h3 {
+  font-size: var(--fs-h3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.offers__card p {
+  color: var(--text-soft);
+}
+
+.offers__card small {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}
+
+.offers__icon {
+  color: var(--accent);
+}
+
+/* ---------- Ask-us panel (no offers yet) ---------- */
+.offers__empty {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: clamp(2.25rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
+  text-align: center;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(70% 90% at 50% 0%, rgba(201, 162, 75, 0.1), transparent 70%),
+    rgba(4, 18, 13, 0.55);
+}
+
+/* Inner hairline frame */
+.offers__empty::before {
+  content: '';
+  position: absolute;
+  inset: 0.6rem;
+  border: 1px solid rgba(201, 162, 75, 0.14);
+  pointer-events: none;
+}
+
+.offers__empty h3 {
+  font-size: var(--fs-h2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.offers__empty .lead {
+  margin-inline: auto;
+}
+
+.offers__orn {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--accent-bright);
+}
+
+.offers__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
